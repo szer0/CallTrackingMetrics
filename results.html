@@ -1,0 +1,37 @@
+<!-- Chris Brown -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="orderup.css">
+<title>OrderUp Success</title>
+
+
+</head>
+<header>
+Your form has been submitted
+</header>
+<body onload="myFunction()">
+<fieldset id="resultMsg">
+<h1>You entered the following data: </h1>
+<div id="data"></div>
+</fieldset>
+
+<script>
+
+//Formats the data using location.search
+function myFunction() {
+    var theData = location.search.replace("?",'');
+    theData = theData.replace("+"," ");
+    theData = theData.split("&");
+
+  	var actualData = "";
+  	for (var i = 0, j = theData.length; i < j; i++) {
+    	actualData += theData[i]+"<br>"
+ 	 }
+
+    document.getElementById("data").innerHTML = actualData;
+}
+</script>
+
+</body>
+</html>

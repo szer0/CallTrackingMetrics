@@ -1,0 +1,43 @@
+/* Chris Brown */
+
+header {
+  text-align: center;
+  font-family: Arial;
+  font-size:40px;
+  text-shadow: whitesmoke 0.1em 0.1em 0.2em;
+}
+
+body {
+  background-color: PaleTurquoise;
+}
+
+fieldset { 
+  border:0px;
+  background-color: whitesmoke;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  margin:10px;
+}
+
+legend {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  font-family: Arial;
+  background-color: white;
+  padding: 0.2em 0.5em;
+  border:1px solid black;
+  color:black;
+  font-size:90%;
+  text-align:left;
+  }
+
+.btns{
+  text-align: center;
+  margin: 0 auto;
+  font-family: Arial;
+}
+
+.messaging * {
+  display: block;
+  vertical-align: middle;
+}

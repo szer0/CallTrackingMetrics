@@ -1,0 +1,55 @@
+<!-- Author: Chris Brown -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styling.css">
+<title>Messaging</title>
+
+<script>
+    function phoneValidate() {
+        var phoneNum = document.getElementById("phone").value;
+
+        if (!/^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(phoneNum)) {
+            document.getElementById("phonelabl").style.color = "red";
+            document.getElementById("alerts").style.color = "red";
+            document.getElementById("alerts").innerHTML = "Invalid Phone Number"
+            return false;
+        }
+        //This is a little dangerous as if the server is down it may not actually send, but the only other way I know to do this is via jquery
+        document.getElementById("phonelabl").style.color = "black";
+        document.getElementById("alerts").style.color = "black";
+        document.getElementById("alerts").innerHTML = "Sent"
+        return true;
+    }
+</script>
+</style>
+
+</head>
+<header>
+Web to SMS
+</header>
+<body> 
+<form id="orderup" method="post" action="http://localhost:8888/sendsms" onsubmit="return phoneValidate()">
+  <fieldset class="messaging">
+    <legend>Message Information</legend>
+    <label for="text">Name</label> <input type="text" id="name" name="name" required><br>
+    <!-- I learned type="tel" causes web browsers to use a special keyboard for input !-->
+    <label id="phonelabl" for="tel">Phone #</label> <input type="tel" id="phone" name="phone" required><br>
+    <label for="textarea">Message</label><textarea rows="2" cols="30" id="sendmsg" name="sendmsg" required></textarea><br>
+  </fieldset>
+  <div class="btns">
+    <input id= "btnSendMsg" type="submit" value="Send Message">
+    <p id="alerts"></p>
+  </div>
+</form>
+
+  <fieldset class="messages">
+    <legend>Stored Messages</legend>
+  </fieldset>
+    <div class="btns">
+    <input id= "btnRefreshMsg" type="submit" value="Refresh Messages">
+    <p id="alerts"></p>
+  </div>
+</body>
+</html>
+
